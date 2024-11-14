@@ -44,6 +44,7 @@
                 <div>@include('settings.roles.parts.checkbox', ['permission' => 'settings-manage', 'label' => trans('settings.role_manage_settings')])</div>
                 <div>@include('settings.roles.parts.checkbox', ['permission' => 'users-manage', 'label' => trans('settings.role_manage_users')])</div>
                 <div>@include('settings.roles.parts.checkbox', ['permission' => 'user-roles-manage', 'label' => trans('settings.role_manage_roles')])</div>
+                <div>@include('settings.roles.parts.checkbox', ['permission' => 'users-list', 'label' => trans('settings.role_list_users')])</div>
                 <p class="text-warn text-small mt-s mb-none">{{ trans('settings.roles_system_warning') }}</p>
             </div>
         </div>
