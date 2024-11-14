@@ -43,7 +43,7 @@ class HomeController extends Controller
                 ->get();
             $userList = User::whereHas('roles', function (Builder $query) {
                 $query->where('id', '=', 02);
-            })->get();
+            })->orderBy('name')->get();
         }
 
         $recentFactor = count($draftPages) > 0 ? 0.5 : 1;
