@@ -11,6 +11,7 @@ use BookStack\Entities\Tools\PageContent;
 use BookStack\Http\Controller;
 use BookStack\Users\Models\User;
 use BookStack\Util\SimpleListOptions;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -40,7 +41,9 @@ class HomeController extends Controller
                 ->with('book')
                 ->take(6)
                 ->get();
-            $userList = User::all();
+            $userList = User::whereHas('roles', function (Builder $query) {
+                $query->where('id', '=', 02);
+            })->get();
         }
 
         $recentFactor = count($draftPages) > 0 ? 0.5 : 1;

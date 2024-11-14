@@ -77,7 +77,7 @@
 
         @if(userCan('users-list'))
             <div id="{{ auth()->check() ? 'recently-viewed' : 'recent-books' }}" class="card mb-xl">
-                <h3 class="card-title">{{ trans('entities.user_listing') }}</h3>
+                <h3 class="card-title">{{ trans('entities.apprentices') }}</h3>
                 <div class="px-m  text-muted empty-text pb-l mb-none ">
                     @foreach($usersList as $key=>$value)
                         <div>

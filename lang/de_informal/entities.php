@@ -35,6 +35,8 @@ return [
     'no_pages_recently_created' => 'Du hast bisher keine Seiten angelegt.',
     'no_pages_recently_updated' => 'Du hast bisher keine Seiten aktualisiert.',
     'export' => 'Exportieren',
+    'user_listing' => 'Benutzer Auflistung',
+    'apprentices' => 'Lernende',
     'export_html' => 'HTML-Datei',
     'export_pdf' => 'PDF-Datei',
     'export_text' => 'Textdatei',

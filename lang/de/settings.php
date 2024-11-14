@@ -176,7 +176,7 @@ Hinweis: Benutzer kÃ¶nnen ihre E-Mail-Adresse nach erfolgreicher Registrierung Ã
     'role_save' => 'Rolle speichern',
     'role_users' => 'Dieser Rolle zugeordnete Benutzer',
     'role_users_none' => 'Bisher sind dieser Rolle keine Benutzer zugeordnet',
-    'role_list_users' => 'Benutzerauflistung',
+    'role_list_users' => 'Lernende',
 
     // Users
     'users' => 'Benutzer',
