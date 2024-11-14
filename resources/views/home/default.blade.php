@@ -84,7 +84,7 @@
 
 
                             <a href="/search?term=%7Bcreated_by%3A{{ $value->slug }}%7D+%7Btype%3Abook%7D"
-                               aria-haspopup="true" aria-expanded="false" class="user-name py-s hide-under-l flex-container-row items-center"
+                               aria-haspopup="true" aria-expanded="false" class="user-name py-s flex-container-row items-center"
                                aria-label="{{ trans('common.profile_menu') }}" tabindex="0">
                                 <img class="avatar" src="{{$value->getAvatar(30)}}" alt="{{ $value->name }}">&nbsp;&nbsp;
                                 <span class="name">{{ $value->getShortName(9) }}</span>
