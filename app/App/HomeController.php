@@ -9,6 +9,7 @@ use BookStack\Entities\Queries\QueryRecentlyViewed;
 use BookStack\Entities\Queries\QueryTopFavourites;
 use BookStack\Entities\Tools\PageContent;
 use BookStack\Http\Controller;
+use BookStack\Users\Models\User;
 use BookStack\Util\SimpleListOptions;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,8 @@ class HomeController extends Controller
     ) {
         $activity = $activities->latest(10);
         $draftPages = [];
+        $userList = [];
+
 
         if ($this->isSignedIn()) {
             $draftPages = $this->queries->pages->currentUserDraftsForList()
@@ -37,6 +40,7 @@ class HomeController extends Controller
                 ->with('book')
                 ->take(6)
                 ->get();
+            $userList = User::all();
         }
 
         $recentFactor = count($draftPages) > 0 ? 0.5 : 1;
@@ -62,6 +66,7 @@ class HomeController extends Controller
             'recentlyUpdatedPages' => $recentlyUpdatedPages,
             'draftPages'           => $draftPages,
             'favourites'           => $favourites,
+            'usersList' => $userList
         ];
 
         // Add required list ordering & sorting for books & shelves views.

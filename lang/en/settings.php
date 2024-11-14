@@ -175,6 +175,7 @@ return [
     'role_save' => 'Save Role',
     'role_users' => 'Users in this role',
     'role_users_none' => 'No users are currently assigned to this role',
+    'role_list_users' => 'User Listing',
 
     // Users
     'users' => 'Users',

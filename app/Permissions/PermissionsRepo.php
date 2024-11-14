@@ -98,6 +98,7 @@ class PermissionsRepo
                 'restrictions-manage-all',
                 'restrictions-manage-own',
                 'settings-manage',
+                'users-list',
             ]));
         }
 

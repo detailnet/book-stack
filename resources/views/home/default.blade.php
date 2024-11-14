@@ -75,7 +75,28 @@
                 </div>
             </div>
 
-        </div>
+        @if(userCan('users-list'))
+            <div id="{{ auth()->check() ? 'recently-viewed' : 'recent-books' }}" class="card mb-xl">
+                <h3 class="card-title">{{ trans('entities.user_listing') }}</h3>
+                <div class="px-m  text-muted empty-text pb-l mb-none ">
+                    @foreach($usersList as $key=>$value)
+                        <div>
+
+
+                            <a href="/search?term=%7Bcreated_by%3A{{ $value->slug }}%7D+%7Btype%3Abook%7D"
+                               aria-haspopup="true" aria-expanded="false" class="user-name py-s hide-under-l flex-container-row items-center"
+                               aria-label="{{ trans('common.profile_menu') }}" tabindex="0">
+                                <img class="avatar" src="{{$value->getAvatar(30)}}" alt="{{ $value->name }}">&nbsp;&nbsp;
+                                <span class="name">{{ $value->getShortName(9) }}</span>
+                            </a>
+                        </div>
+
+                    @endforeach
+                </div>
+                @endif
+
+
+            </div>
     </div>
 
 @stop
