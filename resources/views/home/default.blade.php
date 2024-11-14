@@ -15,6 +15,32 @@
 
     <div class="container" id="home-default">
         <div class="grid third gap-x-xxl no-row-gap">
+
+
+            @if(userCan('users-list'))
+                <div id="{{ auth()->check() ? 'recently-viewed' : 'recent-books' }}" class="card mb-xl">
+                    <h3 class="card-title">{{ trans('entities.apprentices') }}</h3>
+                    <div class="px-m  text-muted empty-text pb-l mb-none ">
+                        @foreach($usersList as $key=>$value)
+                            <div>
+
+
+                                <a href="/search?term=%7Bcreated_by%3A{{ $value->slug }}%7D+%7Btype%3Abook%7D"
+                                   aria-haspopup="true" aria-expanded="false"
+                                   class="user-name py-s flex-container-row items-center"
+                                   aria-label="{{ trans('common.profile_menu') }}" tabindex="0">
+                                    <img class="avatar" src="{{$value->getAvatar(30)}}" alt="{{ $value->name }}">&nbsp;&nbsp;
+                                    <span class="name">{{ $value->getShortName(9) }}</span>
+                                </a>
+                            </div>
+
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+
+
             <div>
                 @if(count($draftPages) > 0)
                     <div id="recent-drafts" class="card mb-xl">
@@ -61,7 +87,8 @@
                         ])
                     </div>
                     @if(count($recentlyUpdatedPages) > 0)
-                        <a href="{{ url("/pages/recently-updated") }}" class="card-footer-link">{{ trans('common.view_all') }}</a>
+                        <a href="{{ url("/pages/recently-updated") }}"
+                           class="card-footer-link">{{ trans('common.view_all') }}</a>
                     @endif
                 </div>
             </div>
@@ -75,28 +102,8 @@
                 </div>
             </div>
 
-        @if(userCan('users-list'))
-            <div id="{{ auth()->check() ? 'recently-viewed' : 'recent-books' }}" class="card mb-xl">
-                <h3 class="card-title">{{ trans('entities.apprentices') }}</h3>
-                <div class="px-m  text-muted empty-text pb-l mb-none ">
-                    @foreach($usersList as $key=>$value)
-                        <div>
 
 
-                            <a href="/search?term=%7Bcreated_by%3A{{ $value->slug }}%7D+%7Btype%3Abook%7D"
-                               aria-haspopup="true" aria-expanded="false" class="user-name py-s flex-container-row items-center"
-                               aria-label="{{ trans('common.profile_menu') }}" tabindex="0">
-                                <img class="avatar" src="{{$value->getAvatar(30)}}" alt="{{ $value->name }}">&nbsp;&nbsp;
-                                <span class="name">{{ $value->getShortName(9) }}</span>
-                            </a>
-                        </div>
-
-                    @endforeach
-                </div>
-                @endif
-
-
-            </div>
-    </div>
+        </div>
 
 @stop
